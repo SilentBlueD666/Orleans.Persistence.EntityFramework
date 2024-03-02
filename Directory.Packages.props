@@ -14,15 +14,12 @@
     <PackageVersion Include="coverlet.collector" Version="6.0.1" />
     <PackageVersion Include="coverlet.msbuild" Version="6.0.1" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+    <PackageVersion Include="Microsoft.Orleans.Runtime" Version="$(OrleansVersion)" />
     <PackageVersion Include="xunit" Version="2.7.0" />
     <PackageVersion Include="xunit.runner.reporters" Version="2.7.0" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="2.5.7" />
-    <PackageVersion Include="Microsoft.Orleans.Core.Abstractions" Version="$(OrleansVersion)" />
-    <PackageVersion Include="Microsoft.Orleans.Core" Version="$(OrleansVersion)" />
-    <PackageVersion Include="Microsoft.Orleans.Sdk" Version="$(OrleansVersion)" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="$(EntityFrameworkVersion)" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="$(EntityFrameworkVersion)" />
-    <PackageVersion Include="Microsoft.Extensions.Options" Version="$(MSExtensionsVersion)" />
     <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
   </ItemGroup>
 </Project>

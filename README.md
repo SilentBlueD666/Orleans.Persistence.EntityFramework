@@ -19,19 +19,24 @@ Nuget: https://www.nuget.org/packages/Orleans.Persistence.EntityFramework/
 
 or
 
-```dotnet add package Orleans.Persistence.EntityFramework --version 0.15.1```
+```dotnet add package Orleans.Persistence.EntityFramework --version 0.16.0```
 
 or 
 
-```Install-Package Orleans.Persistence.EntityFramework --version 0.15.1```
+```Install-Package Orleans.Persistence.EntityFramework --version 0.16.0```
 
 
-And configure the storage provider using SiloHostBuilder:
+And configure the storage provider using SiloBuilder:
 
 ```c#
-ISiloHostBuilder builder = new SiloHostBuilder();
 
-builder.AddEfGrainStorage<FrogsDbContext>("ef");  
+builder
+    .UseOrleans(silo =>
+    {
+        // ... Other Orleans configuration ... //
+
+        silo.AddEntityFrameworkGrainStorage<FrogsDbContext>("ef");
+    });  
 
 ```
 

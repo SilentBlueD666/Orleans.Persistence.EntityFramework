@@ -17,8 +17,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <PackageReference Include="microsoft.orleans.core.abstractions" />
-    <PackageReference Include="Microsoft.Extensions.Logging.console" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" />
     <PackageReference Include="xunit" />
     <PackageReference Include="xunit.runner.visualstudio">
       <PrivateAssets>all</PrivateAssets>

@@ -1,6 +1,6 @@
 ﻿<Project>
 	<PropertyGroup>
-		<Version>0.2.0</Version>
+		<Version>0.16.0</Version>
 		<LangVersion>latest</LangVersion>
 		<Version Condition="'$(APPVEYOR_BUILD_NUMBER)' != ''">0.0.0-nightly.$(APPVEYOR_BUILD_NUMBER)</Version>
 	</PropertyGroup>

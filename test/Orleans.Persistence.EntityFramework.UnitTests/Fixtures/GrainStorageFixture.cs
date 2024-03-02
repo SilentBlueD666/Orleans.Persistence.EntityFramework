@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Orleans.Persistence.EntityFramework.Conventions;
-using Orleans.Persistence.EntityFramework.Extensions;
+using Orleans.Persistence.EntityFramework.Hosting;
 using Orleans.Persistence.EntityFramework.UnitTests.Grains;
 using Orleans.Persistence.EntityFramework.UnitTests.Internal;
 using Orleans.Persistence.EntityFramework.UnitTests.Models;
@@ -42,7 +42,7 @@ namespace Orleans.Persistence.EntityFramework.UnitTests.Fixtures
                 // Orleans stuff
                 .AddSingleton<ITypeResolver, TypeResolver>()
                 // Storage
-                .AddEfGrainStorage<TestDbContext>()
+                .AddEntityFrameworkGrainStorage<TestDbContext>()
                 .AddSingleton<IGrainStorage, EntityFrameworkGrainStorage<TestDbContext>>()
                 .AddSingleton<IGrainStorageConvention, TestGrainStorageConvention>()
                 .AddSingleton<IEntityTypeResolver, TestEntityTypeResolver>();
