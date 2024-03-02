@@ -1,27 +1,29 @@
 # Orleans.Persistence.EntityFramework
-This is a fork of the original [Orleans.Providers.EntityFramework](https://github.com/OrleansContrib/Orleans.Providers.EntityFramework). The original project is no longer maintained and I have made some changes to the original project to make it work with the latest version of Orleans and Entity Framework Core.
+
+This is a fork of the original [Orleans.Persistence.EntityFramework](https://github.com/OrleansContrib/Orleans.Persistence.EntityFramework). The original project is no longer maintained and I have made some changes to the original project to make it work with the latest version of Orleans and Entity Framework Core.
 
 The idea is to provide a storage provider for Orleans that uses Entity Framework Core to store the grain state in a database. This is useful when you want to use a relational database to store the grain state instead of blob storage model.
 
 # Introduction
+
 An Entity Framework Core implementation of Orleans Grain Storage.
 
 There are some nice to have features missing. I didn't needed them particularly but If you have suggestions or want to help out, it would be much appreciated.
 
 [![AppVeyor](https://img.shields.io/appveyor/ci/alirezajm/orleans-providers-entityframework.svg)](https://ci.appveyor.com/project/alirezajm/orleans-providers-entityframework)
-[![NuGet](https://img.shields.io/nuget/v/Orleans.Providers.EntityFramework.svg)](https://www.nuget.org/packages/Orleans.Providers.EntityFramework)
+[![NuGet](https://img.shields.io/nuget/v/Orleans.Persistence.EntityFramework.svg)](https://www.nuget.org/packages/Orleans.Persistence.EntityFramework)
 
 ## Usage
 
-Nuget: https://www.nuget.org/packages/Orleans.Providers.EntityFramework/
+Nuget: https://www.nuget.org/packages/Orleans.Persistence.EntityFramework/
 
 or
 
-```dotnet add package Orleans.Providers.EntityFramework --version 0.15.1```
+```dotnet add package Orleans.Persistence.EntityFramework --version 0.15.1```
 
 or 
 
-```Install-Package Orleans.Providers.EntityFramework --version 0.15.1```
+```Install-Package Orleans.Persistence.EntityFramework --version 0.15.1```
 
 
 And configure the storage provider using SiloHostBuilder:
@@ -77,6 +79,7 @@ public DbSet<Box> Boxes { get; set; }
 ```
 
 ### Querying models using custom expressions
+
 To configure a special model you can do:
 
 ```c#
@@ -111,6 +114,7 @@ services
 The **UseQueryExpression** method instructs the sotrage to use the provided expression to query the database.
 
 ### Loading additional data on read state
+
 You can load additional data while reading the state. Using the SpecialBox model:
 
 ```c#

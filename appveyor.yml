@@ -1,5 +1,5 @@
 version: '{build}'
-image: Visual Studio 2019
+image: Visual Studio 2022
 branches:
   only:
   - master
@@ -11,16 +11,16 @@ before_build:
   - cmd: dotnet --version
   - cmd: dotnet restore --verbosity m
 build_script:
-  - cmd: dotnet pack .\src\Orleans.Providers.EntityFramework -c debug -o .\src\Orleans.Providers.EntityFramework\publish
+  - cmd: dotnet pack .\src\Orleans.Persistence.EntityFramework -c debug -o .\src\Orleans.Persistence.EntityFramework\publish
 after_build:
 artifacts:
  - path: '**\*.nupkg'
-   name: Orleans.Providers.EntityFramework
+   name: Orleans.Persistence.EntityFramework
    type: NuGetPackage
 clone_depth: 1
 test_script:
   - cmd: dotnet restore --verbosity m
-  - cmd: dotnet test .\test\Orleans.Providers.EntityFramework.UnitTests
+  - cmd: dotnet test .\test\Orleans.Persistence.EntityFramework.UnitTests
 on_finish :
   
 deploy: off
