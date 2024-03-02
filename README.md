@@ -1,4 +1,9 @@
-# Orleans.Providers.EntityFramework
+# Orleans.Persistence.EntityFramework
+This is a fork of the original [Orleans.Providers.EntityFramework](https://github.com/OrleansContrib/Orleans.Providers.EntityFramework). The original project is no longer maintained and I have made some changes to the original project to make it work with the latest version of Orleans and Entity Framework Core.
+
+The idea is to provide a storage provider for Orleans that uses Entity Framework Core to store the grain state in a database. This is useful when you want to use a relational database to store the grain state instead of blob storage model.
+
+# Introduction
 An Entity Framework Core implementation of Orleans Grain Storage.
 
 There are some nice to have features missing. I didn't needed them particularly but If you have suggestions or want to help out, it would be much appreciated.
