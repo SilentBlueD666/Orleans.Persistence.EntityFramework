@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Orleans.Persistence.EntityFramework.Conventions;
 using Orleans.Persistence.EntityFramework.Hosting;
+using Orleans.Persistence.EntityFramework.Storage;
 using Orleans.Persistence.EntityFramework.UnitTests.Grains;
 using Orleans.Persistence.EntityFramework.UnitTests.Internal;
 using Orleans.Persistence.EntityFramework.UnitTests.Models;

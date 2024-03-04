@@ -3,6 +3,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Orleans.Persistence.EntityFramework.Storage;
 using Orleans.Runtime;
 
 namespace Orleans.Persistence.EntityFramework.Conventions
@@ -78,10 +79,10 @@ namespace Orleans.Persistence.EntityFramework.Conventions
             where TContext : DbContext
             where TEntity : class;
 
-        Action<IGrainState, TEntity> GetSetterFunc<TGrainState, TEntity>()
+        Action<IGrainState<TEntity>, TEntity> GetSetterFunc<TGrainState, TEntity>()
             where TEntity : class;
 
-        Func<IGrainState, TEntity> GetGetterFunc<TGrainState, TEntity>()
+        Func<IGrainState<TEntity>, TEntity> GetGetterFunc<TGrainState, TEntity>()
             where TEntity : class;
     }
 
@@ -115,8 +116,8 @@ namespace Orleans.Persistence.EntityFramework.Conventions
 
         void SetDefaultKeySelector(GrainStorageOptions<TContext, TGrain, TEntity> options);
 
-        Action<IGrainState, TEntity> GetSetterFunc();
+        Action<IGrainState<TEntity>, TEntity> GetSetterFunc();
 
-        Func<IGrainState, TEntity> GetGetterFunc();
+        Func<IGrainState<TEntity>, TEntity> GetGetterFunc();
     }
 }

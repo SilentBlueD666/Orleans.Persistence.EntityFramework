@@ -4,6 +4,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Orleans.Persistence.EntityFramework.Exceptions;
+using Orleans.Persistence.EntityFramework.Storage;
 using Orleans.Runtime;
 
 namespace Orleans.Persistence.EntityFramework.Hosting;
@@ -63,7 +64,7 @@ public static class GrainStorageOptionsExtensions
     /// <returns></returns>
     public static GrainStorageOptions<TContext, TGrain, TGrainState> ConfigureReadState<TContext, TGrain, TGrainState>(
         this GrainStorageOptions<TContext, TGrain, TGrainState> options,
-        Func<TContext, IAddressable, Task<TGrainState>> readStateAsyncFunc)
+        Func<TContext, GrainId, Task<TGrainState>> readStateAsyncFunc)
         where TContext : DbContext
         where TGrainState : class
     {

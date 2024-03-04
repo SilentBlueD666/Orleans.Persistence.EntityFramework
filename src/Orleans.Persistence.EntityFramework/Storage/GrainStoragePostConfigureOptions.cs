@@ -9,7 +9,7 @@ using Orleans.Persistence.EntityFramework.Conventions;
 using Orleans.Persistence.EntityFramework.Exceptions;
 using Orleans.Runtime;
 
-namespace Orleans.Persistence.EntityFramework
+namespace Orleans.Persistence.EntityFramework.Storage
 {
     public class GrainStoragePostConfigureOptions<TContext, TGrain, TGrainState, TEntity>
         : IPostConfigureOptions<GrainStorageOptions<TContext, TGrain, TEntity>>

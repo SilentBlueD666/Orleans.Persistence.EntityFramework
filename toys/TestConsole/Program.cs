@@ -37,15 +37,19 @@ namespace TestConsole
 
             Expression<Func<TestDbContext, IQueryable<TestEntity>>> queryRootExpression
                 = (ctx) => ctx.Entities.AsQueryable();
+
             var queryable = queryRootExpression.Body;
+
             var compiledLambdaBody = Expression.Call(
                 typeof(Queryable).GetMethods().Single(mi =>
                         mi.Name == nameof(Queryable.SingleOrDefault) && mi.GetParameters().Count() == 2)
                     .MakeGenericMethod(typeof(TestEntity)),
                 queryable,
                 Expression.Quote(predicate));
+
             var lambdaExpression = Expression.Lambda<Func<TestDbContext, Guid, TestEntity>>(
                 compiledLambdaBody, queryRootExpression.Parameters[0], idParameter);
+
             var failingQuery = EF.CompileQuery(lambdaExpression);
 
             var okQuery = EF.CompileQuery((TestDbContext c, Guid id)

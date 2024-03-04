@@ -1,20 +1,14 @@
 ﻿using System;
 
-namespace Orleans.Persistence.EntityFramework
-{
-    public class EntityTypeResolver : IEntityTypeResolver
-    {
-        public virtual Type ResolveEntityType(string grainType, IGrainState grainState)
-        {
-            return ResolveStateType(grainType, grainState);
-        }
+namespace Orleans.Persistence.EntityFramework;
 
-        public virtual Type ResolveStateType(string grainType, IGrainState grainState)
-        {
-            // todo: hack, the declared type of the grain state is only accessible like so
-            return grainState.GetType().IsGenericType
-                ? grainState.GetType().GenericTypeArguments[0]
-                : grainState.State.GetType();
-        }
-    }
+public class EntityTypeResolver : IEntityTypeResolver
+{
+    public virtual Type ResolveEntityType<T>(string stateName, IGrainState<T> grainState) 
+        => ResolveStateType(stateName, grainState);
+
+    public virtual Type ResolveStateType<T>(string stateName, IGrainState<T> grainState) 
+        => grainState.GetType().IsGenericType
+            ? grainState.GetType().GenericTypeArguments[0]
+            : grainState.State.GetType();
 }

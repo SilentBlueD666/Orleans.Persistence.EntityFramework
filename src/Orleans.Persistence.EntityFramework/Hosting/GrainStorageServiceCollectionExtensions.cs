@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using Orleans.Persistence.EntityFramework.Conventions;
+using Orleans.Persistence.EntityFramework.Storage;
 using Orleans.Providers;
 using Orleans.Storage;
 
